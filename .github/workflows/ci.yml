@@ -7,8 +7,18 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v2
 
+      - name: Cache dependencies 💎
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache
+          key: dependencies-${{ runner.os }}-${{ hashFiles('**/package-lock.lock') }}
+
       - name: Install dependencies 📦
         run: npm ci
+
+      - name: Show Cypress info ℹ️
+        run: npx cypress info
 
       - name: Build the app 🏗
         run: npm run build
