@@ -12,13 +12,19 @@ jobs:
         with:
           path: |
             ~/.cache
-          key: dependencies-${{ runner.os }}-${{ hashFiles('**/package-lock.lock') }}
+          # use key string with "v1" for simple cache invalidation
+          # use precise key to avoid cache "snowballing"
+          # https://glebbahmutov.com/blog/do-not-let-cypress-cache-snowball/
+          key: dependencies-v1-${{ runner.os }}-${{ hashFiles('**/package-lock.lock') }}
 
       - name: Install dependencies 📦
         run: npm ci
 
       - name: Show Cypress info ℹ️
         run: npx cypress info
+
+      - name: Verify Cypress can run 🏃‍♂️
+        run: npx cypress verify
 
       - name: Build the app 🏗
         run: npm run build
