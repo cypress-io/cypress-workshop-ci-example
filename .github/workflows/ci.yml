@@ -30,9 +30,11 @@ jobs:
       - name: Build the app 🏗
         run: npm run build
 
+      - name: Start the app 📤
+        run: npm start &
+
       - name: Run Cypress tests 🧪
-        # so we run "cypress run --record"
-        run: npm run e2e -- --record
+        run: npx cypress run --record
         env:
           # pass the record key as environment variable
           # during this CI step
