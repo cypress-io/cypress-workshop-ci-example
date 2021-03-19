@@ -2,44 +2,15 @@ name: ci
 on: [push]
 jobs:
   build-and-test:
-    strategy:
-      # do not stop the matrix if one of the jobs fails
-      fail-fast: false
-      matrix:
-        os: [macos-latest, windows-latest, ubuntu-20.04]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v2
 
-      - name: Cache dependencies 💎
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache
-            ~/.npm
-          # use key string with "v1" for simple cache invalidation
-          # use precise key to avoid cache "snowballing"
-          # https://glebbahmutov.com/blog/do-not-let-cypress-cache-snowball/
-          key: dependencies-v2-${{ runner.os }}-${{ hashFiles('**/package-lock.lock') }}
-
-      - name: Install dependencies 📦
-        run: npm ci
-
-      - name: Show Cypress info ℹ️
-        run: npx cypress info
-
-      - name: Verify Cypress can run 🏃‍♂️
-        run: npx cypress verify
-
-      - name: Build the app 🏗
-        run: npm run build
-
-      - name: Start the app 📤
-        run: npm start &
-
       - name: Run Cypress tests 🧪
-        run: npx cypress run --record
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
         env:
           # pass the record key as environment variable
           # during this CI step
