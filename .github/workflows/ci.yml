@@ -1,7 +1,7 @@
 name: ci
 on: [push]
 jobs:
-  build-and-test-${{ matrix.os }}:
+  build-and-test:
     strategy:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-20.04]
