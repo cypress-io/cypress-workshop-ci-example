@@ -10,9 +10,11 @@ jobs:
       - name: Run Cypress tests 🧪
         uses: cypress-io/github-action@v2
         with:
+          build: npx cypress info
           record: true
           start: npm start
           wait-on: 'http://localhost:8080'
+          browser: firefox
         env:
           # pass the record key as environment variable
           # during this CI step
