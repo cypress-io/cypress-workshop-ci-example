@@ -11,6 +11,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           record: true
+          start: npm start
+          wait-on: 'http://localhost:8080'
         env:
           # pass the record key as environment variable
           # during this CI step
