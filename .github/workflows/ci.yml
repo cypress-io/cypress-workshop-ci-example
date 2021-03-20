@@ -36,10 +36,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Download built folder 📥
-        uses: actions/upload-artifact@v2
+        uses: actions/download-artifact@v2
         with:
           name: built
-          path: .
 
       - name: Run Cypress tests 🧪
         uses: cypress-io/github-action@v2
