@@ -1,7 +1,7 @@
 name: ci
 on: [push]
 jobs:
-  build-and-test:
+  all-tests:
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
@@ -25,13 +25,16 @@ jobs:
           # during this CI step
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+  smoke-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
       - name: Run Smoke tests 💨
         uses: cypress-io/github-action@v2
         with:
-          # we have already installed all dependencies above
-          install: false
           record: true
-          parallel: true
           start: npm start
           wait-on: 'http://localhost:8080'
           group: Smoke specs
