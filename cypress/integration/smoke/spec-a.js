@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Example site', () => {
+describe('Example site smok test', () => {
   it('loads', () => {
     cy.visit('/')
     cy.wait(5000)
