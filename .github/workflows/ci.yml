@@ -40,6 +40,9 @@ jobs:
         with:
           name: built
 
+      - name: Show built folder 👀
+        run: ls -la _site
+
       - name: Run Cypress tests 🧪
         uses: cypress-io/github-action@v2
         with:
