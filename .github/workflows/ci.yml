@@ -39,6 +39,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: built
+          path: _site
 
       - name: Show built folder 👀
         run: ls -la _site
