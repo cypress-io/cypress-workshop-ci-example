@@ -9,3 +9,4 @@ workflows:
       - cypress/run:
           start: npm start
           wait-on: 'http://localhost:8080'
+          no-workspace: true
