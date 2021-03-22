@@ -14,4 +14,4 @@ workflows:
           record: true
           tags: circleci
           parallel: true
-          parallelism: 2
+          parallelism: 4
