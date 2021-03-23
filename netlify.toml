@@ -7,3 +7,9 @@ publish = "_site"
   package = "netlify-plugin-cypress"
   [plugins.inputs]
     record = true
+  # run Cypress tests before building and deploying
+  [plugins.inputs.preBuild]
+    enable = true
+    # call the same commands as we do locally
+    start = 'eleventy --serve'
+    wait-on = 'http://localhost:8080'
