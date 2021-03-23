@@ -13,3 +13,4 @@ publish = "_site"
     # call the same commands as we do locally
     start = 'eleventy --serve'
     wait-on = 'http://localhost:8080'
+    record = true
