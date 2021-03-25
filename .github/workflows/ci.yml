@@ -17,6 +17,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           build: npx cypress info
+          parallel: true
           browser: firefox
           record: true
           start: npm start
