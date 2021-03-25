@@ -7,6 +7,11 @@ workflows:
       # "cypress" is the name of the imported orb
       # "run" is the name of the job defined in Cypress orb
       - cypress/run:
-          record: true
           start: npm start
           wait-on: 'http://localhost:8080'
+          no-workspace: true
+          record: true
+          parallel: true
+          parallelism: 4
+          group: 'Parallel spec'
+          tag: "circleci"
