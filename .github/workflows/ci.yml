@@ -35,6 +35,6 @@ jobs:
 
       - name: Run Cypress tests 🧪
         # run: npm run cy:run
-        run: npx cypress run --record
+        run: npx cypress run --record --browser chrome
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
