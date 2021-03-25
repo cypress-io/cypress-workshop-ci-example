@@ -43,7 +43,7 @@ jobs:
         run: npx wait-on http://localhost:8080
 
       - name: Run Cypress tests 🧪
-        run: cypress run --record --browser chrome
+        run: npx cypress run --record --browser chrome
         env:
           # pass the record key as environment variable
           # during this CI step
