@@ -16,25 +16,16 @@ jobs:
       - name: Run Cypress tests 🧪
         uses: cypress-io/github-action@v2
         with:
+          build: npx cypress info
+          browser: firefox
           record: true
           parallel: true
           start: npm start
           wait-on: 'http://localhost:8080'
-          group: All specs
         env:
           # pass the record key as environment variable
           # during this CI step
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-
-      - name: Run Smoke tests 💨
-        uses: cypress-io/github-action@v2
-        with:
-          record: true
-          parallel: true
-          start: npm start
-          wait-on: 'http://localhost:8080'
-          group: Smoke specs
-          spec: 'cypress/integration/smoke/**/*.js'
 
 
 
