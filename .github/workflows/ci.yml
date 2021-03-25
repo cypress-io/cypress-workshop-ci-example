@@ -1,0 +1,23 @@
+name: ci
+# Can run on linux, OS X, windows
+on: [push]
+jobs:
+  build-and-test:
+    # Can run on linux, OS X, windows
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
+      - name: Install dependencies 📦
+        # Go to package-lock, not package.json
+        run: npm ci
+
+      - name: Build the app 🏗
+        run: npm run build
+
+      - name: Start the app 📤
+        run: npm start &
+
+      - name: Run Cypress tests 🧪
+        run: npm run cy:run
