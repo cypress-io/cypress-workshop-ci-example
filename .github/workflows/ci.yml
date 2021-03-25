@@ -7,6 +7,17 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v2
 
+      - name: Cache dependencies 💎
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache
+            ~/.npm
+          # use key string with "v1" for simple cache invalidation
+          # use precise key to avoid cache "snowballing"
+          # https://glebbahmutov.com/blog/do-not-let-cypress-cache-snowball/
+          key: dependencies-v1-${{ runner.os }}-${{ hashFiles('**/package-lock.lock') }}
+
       - name: Install dependencies 📦
         run: npm ci
 
