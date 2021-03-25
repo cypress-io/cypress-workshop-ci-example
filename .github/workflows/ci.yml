@@ -11,6 +11,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           build: npx cypress info
+          browser: firefox
           record: true
           start: npm start
           wait-on: 'http://localhost:8080'
