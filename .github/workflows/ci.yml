@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies 📦
         run: npm ci
 
+      - name: Browsers
+        run: npx cypress info
+
       - name: Build the app 🏗
         run: npm run build
 
