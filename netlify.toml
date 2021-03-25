@@ -1,5 +1,9 @@
 [build]
 command = "npm run build"
 publish = "_site"
+[build.environment]
+  TERM = "xterm"
 [[plugins]]
   package = "netlify-plugin-cypress"
+[[plugins.inputs]]
+  record = true
