@@ -15,6 +15,8 @@ jobs:
       - name: Run Cypress tests 🧪
         uses: cypress-io/github-action@v2
         with:
+          group: 'all tests'
+          tag: 'github-action'
           record: true
           parallel: true
           start: npm start
