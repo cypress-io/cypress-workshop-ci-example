@@ -19,6 +19,7 @@ jobs:
           build: npx cypress info
           browser: firefox
           record: true
+          parallel: true
           start: npm start
           wait-on: 'http://localhost:8080'
         env:
