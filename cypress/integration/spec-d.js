@@ -8,17 +8,20 @@ describe('Example site', () => {
 
   it('navigates to README', () => {
     cy.visit('/')
+    cy.wait(5000)
     cy.contains('a', 'README').click()
     cy.location('pathname').should('equal', '/README/')
   })
 
   it('goes directly to README', () => {
     cy.visit('/README')
+    cy.wait(5000)
     cy.contains('h2', 'README')
   })
 
   it('redirects to README/', () => {
     cy.visit('/README/')
+    cy.wait(5000)
     cy.contains('h2', 'README')
   })
 })

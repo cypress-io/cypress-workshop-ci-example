@@ -3,6 +3,7 @@
 describe('Example site', () => {
   it('loads', () => {
     cy.visit('/')
+    cy.wait(5000)
     cy.contains('h1', 'cypress-workshop-ci-example').should('be.visible')
   })
 
@@ -14,6 +15,7 @@ describe('Example site', () => {
 
   it('goes directly to README', () => {
     cy.visit('/README')
+    cy.wait(5000)
     cy.contains('h2', 'README')
   })
 
