@@ -30,5 +30,21 @@ jobs:
       - name: Start the app 📤
         run: npm start &
 
+      # wait for url to response before run the test ! (https://github.com/jeffbski/wait-on#readme)
+      - name: Wait for URL ⏰
+        run: npx wait-on http://localhost:8080
+
       - name: Run Cypress tests 🧪
         run: npm run cy:run
+
+      # To get screen and videos on github
+      - name: Upload any screenshots and videos 📼
+        uses: actions/upload-artifact@v2
+        # make sure to run this step
+        # even if the previous step fails
+        if: always()
+        with:
+          name: test-artifacts
+          path: |
+            cypress/videos
+            cypress/screenshots
