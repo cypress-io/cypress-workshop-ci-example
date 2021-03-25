@@ -7,7 +7,8 @@
     "start": "eleventy --serve",
     "build": "eleventy",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "e2e": "start-test 8080 cy:run"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@11ty/eleventy": "0.11.1",
     "cypress": "6.7.1",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "start-server-and-test": "^1.12.1"
   }
 }

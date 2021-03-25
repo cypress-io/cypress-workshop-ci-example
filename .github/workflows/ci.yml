@@ -24,12 +24,6 @@ jobs:
       - name: Build the app 🏗
         run: npm run build
 
-      - name: Start the app 📤
-        run: npm start &
-      
-      - name: Wait on
-        run: npx wait-on http://localhost:8080
-
       - name: Run Cypress tests 🧪
-        run: npm run cy:run
+        run: npm run e2e
 
