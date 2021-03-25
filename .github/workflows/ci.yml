@@ -27,3 +27,11 @@ jobs:
       - name: Run Cypress tests 🧪
         run: npm run e2e
 
+      - name: Upload screenshots and videos
+        uses: actions/upload-artifact@2
+        if: always()
+        with:
+          name: test-artifacts
+          path: |
+              cypress/videos
+              cypress/screenshots
