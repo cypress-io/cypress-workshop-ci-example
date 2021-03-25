@@ -4,6 +4,11 @@ on: [push]
 jobs:
   build-and-test:
     runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # run 3 copies of the current job in parallel
+        containers: [1, 2, 3]
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v2
