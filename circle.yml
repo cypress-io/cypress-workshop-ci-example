@@ -14,4 +14,4 @@ workflows:
           parallel: true
           parallelism: 4
           group: 'Parallel spec'
-          tag: "circleci"
+          tags: "circleci"
