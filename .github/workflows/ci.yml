@@ -33,4 +33,4 @@ jobs:
       - name: Run Cypress tests 🧪
         run: npx cypress run --record
         env: 
-          CYPRESS_RECORD_KEY: $ {secrets.CYPRESS_RECORD_KEY}
+          CYPRESS_RECORD_KEY: $ { secrets.CYPRESS_RECORD_KEY }
