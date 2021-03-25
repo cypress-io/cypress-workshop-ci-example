@@ -3,5 +3,5 @@ command = "npm run build"
 publish = "_site"
 [[plugins]]
   package = "netlify-plugin-cypress"
-  [plugin.inputs]
+  [plugins.inputs]
     record = true
