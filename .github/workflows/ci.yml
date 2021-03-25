@@ -27,5 +27,8 @@ jobs:
       - name: Start the app 📤
         run: npm start &
 
+      - name: Wait for URL ⏰
+        run: npx wait-on http://localhost:8080
+
       - name: Run Cypress tests 🧪
         run: npm run cy:run
